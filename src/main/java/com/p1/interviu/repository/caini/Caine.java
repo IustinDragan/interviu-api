@@ -1,4 +1,11 @@
 package com.p1.interviu.repository.caini;
 
-public class Caine {
+import com.p1.interviu.repository.animale.Animal;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Caine extends Animal {
+
+
 }

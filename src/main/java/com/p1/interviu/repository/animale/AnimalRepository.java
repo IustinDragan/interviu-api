@@ -15,6 +15,4 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     @Query("select a.id, a.nume, a.poza from Animal a where a.nume = :nume")
     Optional<Animal> getByNume(@Param("nume") String nume);
 
-    @Query(value = "select * from animal where name = :name", nativeQuery = true)
-    Optional<Animal> getNative(@Param("nume") String nume);
 }

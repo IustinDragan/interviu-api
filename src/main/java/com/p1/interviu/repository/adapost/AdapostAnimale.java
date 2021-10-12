@@ -1,5 +1,6 @@
 package com.p1.interviu.repository.adapost;
 
+import com.p1.interviu.repository.caini.Caine;
 import com.p1.interviu.repository.pisici.Pisica;
 
 import javax.persistence.*;
@@ -15,11 +16,16 @@ public class AdapostAnimale
     @Column(unique = true)
     private String nume;
 
+    private String locatie;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "adapost_id")
     private List<Pisica> pisici = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "adapost_id")
+    private List<Caine> caini = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -36,6 +42,33 @@ public class AdapostAnimale
 
     public AdapostAnimale setNume(String nume) {
         this.nume = nume;
+        return this;
+    }
+
+    public List<Pisica> getPisici() {
+        return pisici;
+    }
+
+    public AdapostAnimale setPisici(List<Pisica> pisici) {
+        this.pisici = pisici;
+        return this;
+    }
+
+    public List<Caine> getCaini() {
+        return caini;
+    }
+
+    public AdapostAnimale setCaini(List<Caine> caini) {
+        this.caini = caini;
+        return this;
+    }
+
+    public String getLocatie() {
+        return locatie;
+    }
+
+    public AdapostAnimale setLocatie(String locatie) {
+        this.locatie = locatie;
         return this;
     }
 }
